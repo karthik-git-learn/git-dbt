@@ -1,0 +1,982 @@
+Microsoft Windows [Version 10.0.19044.2846]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\azurevm>setx path "%PATH%;C:\Python27\Scripts;"
+
+SUCCESS: Specified value was saved.
+
+C:\Users\azurevm>setx path "%PATH%;C:\Users\azurevm\AppData\Local\Programs\Python\Python311\Scripts"
+
+SUCCESS: Specified value was saved.
+
+C:\Users\azurevm>pip
+
+Usage:
+  pip <command> [options]
+
+Commands:
+  install                     Install packages.
+  download                    Download packages.
+  uninstall                   Uninstall packages.
+  freeze                      Output installed packages in requirements format.
+  inspect                     Inspect the python environment.
+  list                        List installed packages.
+  show                        Show information about installed packages.
+  check                       Verify installed packages have compatible dependencies.
+  config                      Manage local and global configuration.
+  search                      Search PyPI for packages.
+  cache                       Inspect and manage pip's wheel cache.
+  index                       Inspect information available from package indexes.
+  wheel                       Build wheels from your requirements.
+  hash                        Compute hashes of package archives.
+  completion                  A helper command used for command completion.
+  debug                       Show information useful for debugging.
+  help                        Show help for commands.
+
+General Options:
+  -h, --help                  Show help.
+  --debug                     Let unhandled exceptions propagate outside the main subroutine, instead of logging them
+                              to stderr.
+  --isolated                  Run pip in an isolated mode, ignoring environment variables and user configuration.
+  --require-virtualenv        Allow pip to only run in a virtual environment; exit with an error otherwise.
+  --python <python>           Run pip with the specified Python interpreter.
+  -v, --verbose               Give more output. Option is additive, and can be used up to 3 times.
+  -V, --version               Show version and exit.
+  -q, --quiet                 Give less output. Option is additive, and can be used up to 3 times (corresponding to
+                              WARNING, ERROR, and CRITICAL logging levels).
+  --log <path>                Path to a verbose appending log.
+  --no-input                  Disable prompting for input.
+  --keyring-provider <keyring_provider>
+                              Enable the credential lookup via the keyring library if user input is allowed. Specify
+                              which mechanism to use [disabled, import, subprocess]. (default: disabled)
+  --proxy <proxy>             Specify a proxy in the form scheme://[user:passwd@]proxy.server:port.
+  --retries <retries>         Maximum number of retries each connection should attempt (default 5 times).
+  --timeout <sec>             Set the socket timeout (default 15 seconds).
+  --exists-action <action>    Default action when a path already exists: (s)witch, (i)gnore, (w)ipe, (b)ackup,
+                              (a)bort.
+  --trusted-host <hostname>   Mark this host or host:port pair as trusted, even though it does not have valid or any
+                              HTTPS.
+  --cert <path>               Path to PEM-encoded CA certificate bundle. If provided, overrides the default. See 'SSL
+                              Certificate Verification' in pip documentation for more information.
+  --client-cert <path>        Path to SSL client certificate, a single file containing the private key and the
+                              certificate in PEM format.
+  --cache-dir <dir>           Store the cache data in <dir>.
+  --no-cache-dir              Disable the cache.
+  --disable-pip-version-check
+                              Don't periodically check PyPI to determine whether a new version of pip is available for
+                              download. Implied with --no-index.
+  --no-color                  Suppress colored output.
+  --no-python-version-warning
+                              Silence deprecation warnings for upcoming unsupported Pythons.
+  --use-feature <feature>     Enable new functionality, that may be backward incompatible.
+  --use-deprecated <feature>  Enable deprecated functionality, that will be removed in the future.
+
+C:\Users\azurevm>pip install dbt
+Collecting dbt
+  Using cached dbt-1.0.0.tar.gz (2.9 kB)
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... error
+  error: subprocess-exited-with-error
+
+  × Getting requirements to build wheel did not run successfully.
+  │ exit code: 1
+  ╰─> [21 lines of output]
+
+      As of v1.0.0, `pip install dbt` is no longer supported.
+      Instead, please use one of the following.
+
+      **To use dbt with your specific database, platform, or query engine:**
+
+          pip install dbt-<adapter>
+
+          See full list: https://docs.getdbt.com/docs/available-adapters
+
+      **For developers of integrations with dbt Core:**
+
+          pip install dbt-core
+
+          Be advised, dbt Cores python API is not yet stable or documented
+          (https://docs.getdbt.com/docs/running-a-dbt-project/dbt-api)
+
+      **For the previous behavior of `pip install dbt`:**
+
+          pip install dbt-core dbt-postgres dbt-redshift dbt-snowflake dbt-bigquery
+
+      [end of output]
+
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× Getting requirements to build wheel did not run successfully.
+│ exit code: 1
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
+
+C:\Users\azurevm>dbt
+usage: dbt [-h] [--version] [-r RECORD_TIMING_INFO] [-d] [--log-format {text,json,default}] [--no-write-json]
+           [--use-colors | --no-use-colors] [--printer-width PRINTER_WIDTH]
+           [--warn-error | --warn-error-options WARN_ERROR_OPTIONS] [--no-version-check]
+           [--partial-parse | --no-partial-parse] [--use-experimental-parser] [--no-static-parser]
+           [--profiles-dir PROFILES_DIR] [--no-anonymous-usage-stats] [-x] [-q] [--no-print]
+           [--cache-selected-only | --no-cache-selected-only]
+           {docs,source,init,clean,debug,deps,list,ls,build,snapshot,run,compile,parse,test,seed,run-operation} ...
+
+An ELT tool for managing your SQL transformations and data models. For more documentation on these commands, visit:
+docs.getdbt.com
+
+options:
+  -h, --help            show this help message and exit
+  --version             Show version information
+  -r RECORD_TIMING_INFO, --record-timing-info RECORD_TIMING_INFO
+                        When this option is passed, dbt will output low-level timing stats to the specified file.
+                        Example: `--record-timing-info output.profile`
+  -d, --debug           Display debug logging during dbt execution. Useful for debugging and making bug reports.
+  --log-format {text,json,default}
+                        Specify the log format, overriding the command's default.
+  --no-write-json       If set, skip writing the manifest and run_results.json files to disk
+  --use-colors          Colorize the output DBT prints to the terminal. Output is colorized by default and may also be
+                        set in a profile or at the command line. Mutually exclusive with --no-use-colors
+  --no-use-colors       Do not colorize the output DBT prints to the terminal. Output is colorized by default and may
+                        also be set in a profile or at the command line. Mutually exclusive with --use-colors
+  --printer-width PRINTER_WIDTH
+                        Sets the width of terminal output
+  --warn-error          If dbt would normally warn, instead raise an exception. Examples include --select that selects
+                        nothing, deprecations, configurations with no associated models, invalid test configurations,
+                        and missing sources/refs in tests.
+  --warn-error-options WARN_ERROR_OPTIONS
+                        If dbt would normally warn, instead raise an exception based on include/exclude configuration.
+                        Examples include --select that selects nothing, deprecations, configurations with no
+                        associated models, invalid test configurations, and missing sources/refs in tests. This
+                        argument should be a YAML string, with keys 'include' or 'exclude'. eg. '{"include": "all",
+                        "exclude": ["NoNodesForSelectionCriteria"]}'
+  --no-version-check    If set, skip ensuring dbt's version matches the one specified in the dbt_project.yml file
+                        ('require-dbt-version')
+  --partial-parse       Allow for partial parsing by looking for and writing to a pickle file in the target directory.
+                        This overrides the user configuration file.
+  --no-partial-parse    Disallow partial parsing. This overrides the user configuration file.
+  --use-experimental-parser
+                        Enables experimental parsing features.
+  --no-static-parser    Disables the static parser.
+  --profiles-dir PROFILES_DIR
+                        Which directory to look in for the profiles.yml file. If not set, dbt will look in the current
+                        working directory first, then HOME/.dbt/
+  --no-anonymous-usage-stats
+                        Do not send anonymous usage stat to dbt Labs
+  -x, --fail-fast       Stop execution upon a first failure.
+  -q, --quiet           Suppress all non-error logging to stdout. Does not affect {{ print() }} macro calls.
+  --no-print            Suppress all {{ print() }} macro calls.
+  --cache-selected-only
+                        Pre cache database objects relevant to selected resource only.
+  --no-cache-selected-only
+                        Pre cache all database objects related to the project.
+
+Available sub-commands:
+  {docs,source,init,clean,debug,deps,list,ls,build,snapshot,run,compile,parse,test,seed,run-operation}
+    docs                Generate or serve the documentation website for your project.
+    source              Manage your project's sources
+    init                Initialize a new DBT project.
+    clean               Delete all folders in the clean-targets list (usually the dbt_packages and target
+                        directories.)
+    debug               Show some helpful information about dbt for debugging. Not to be confused with the --debug
+                        option which increases verbosity.
+    deps                Pull the most recent version of the dependencies listed in packages.yml
+    list (ls)           List the resources in your project
+    build               Run all Seeds, Models, Snapshots, and tests in DAG order
+    snapshot            Execute snapshots defined in your project
+    run                 Compile SQL and execute against the current target database.
+    compile             Generates executable SQL from source, model, test, and analysis files. Compiled SQL files are
+                        written to the target/ directory.
+    parse               Parses the project and provides information on performance
+    test                Runs tests on data in deployed models. Run this after `dbt run`
+    seed                Load data from csv files into your data warehouse.
+    run-operation       Run the named macro with any supplied arguments.
+
+Specify one of these sub-commands and you can find more help from there.
+
+C:\Users\azurevm>dbt --version
+Core:
+  - installed: 1.4.6
+  - latest:    1.4.6 - Up to date!
+
+Plugins:
+  - postgres: 1.4.6 - Up to date!
+
+C:\Users\azurevm>cd Documents
+
+C:\Users\azurevm\Documents>cd git-dbt
+
+C:\Users\azurevm\Documents\git-dbt>dbt init demo_dbt
+16:02:06  Running with dbt=1.4.6
+16:02:06  Creating dbt configuration folder at C:\Users\azurevm\.dbt
+Which database would you like to use?
+[1] postgres
+
+(Don't see the one you want? https://docs.getdbt.com/docs/available-adapters)
+
+Enter a number: 1
+16:02:16  Profile demo_dbt written to C:\Users\azurevm\.dbt\profiles.yml using target's sample configuration. Once updated, you'll be able to start developing with dbt.
+16:02:16
+Your new dbt project "demo_dbt" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+16:33:07  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresql
+  schema: postgresql
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [ERROR]
+
+2 checks failed:
+Could not load dbt_project.yml
+
+dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "azurepostgresql1234.postgres.database.azure.com" (13.90.143.82), port 5432 failed: FATAL:  database "postgresql" does not exist
+
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:16:52  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresql
+  schema: postgresql
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [ERROR]
+
+2 checks failed:
+Could not load dbt_project.yml
+
+dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "azurepostgresql1234.postgres.database.azure.com" (13.90.143.82), port 5432 failed: FATAL:  database "postgresql" does not exist
+
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:17:49  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresql
+  schema: postgresql
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [ERROR]
+
+2 checks failed:
+Could not load dbt_project.yml
+
+dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "azurepostgresql1234.postgres.database.azure.com" (13.90.143.82), port 5432 failed: FATAL:  database "postgresql" does not exist
+
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:19:34  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresqldb
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+1 check failed:
+Could not load dbt_project.yml
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:19:54  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresqldb
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+1 check failed:
+Could not load dbt_project.yml
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:21:23  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresql
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+1 check failed:
+Could not load dbt_project.yml
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:21:53  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresql
+  schema: postgresql
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [ERROR]
+
+2 checks failed:
+Could not load dbt_project.yml
+
+dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  connection to server at "azurepostgresql1234.postgres.database.azure.com" (13.90.143.82), port 5432 failed: FATAL:  database "postgresql" does not exist
+
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:22:14  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresqldb
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+1 check failed:
+Could not load dbt_project.yml
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt run
+17:22:54  Encountered an error:
+Runtime Error
+  fatal: Not a dbt project (or any of the parent directories). Missing dbt_project.yml file
+
+C:\Users\azurevm\Documents\git-dbt>cd demo_dbt
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt run
+17:23:10  Encountered an error while reading the project:  ERROR: Runtime Error
+  Could not find profile named 'demo_dbt'
+17:23:10  Encountered an error:
+Runtime Error
+  Could not run dbt
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt debug
+17:24:10  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\demo_dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [ERROR invalid]
+  dbt_project.yml file [OK found and valid]
+
+Required dependencies:
+ - git [OK found]
+
+1 check failed:
+Profile loading failed for the following reason:
+Runtime Error
+  Could not find profile named 'demo_dbt'
+
+
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>cd
+C:\Users\azurevm\Documents\git-dbt\demo_dbt
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>cd ./
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>cd ../
+
+C:\Users\azurevm\Documents\git-dbt>dbt run
+17:25:47  Encountered an error:
+Runtime Error
+  fatal: Not a dbt project (or any of the parent directories). Missing dbt_project.yml file
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:25:59  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresqldb
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+1 check failed:
+Could not load dbt_project.yml
+
+
+C:\Users\azurevm\Documents\git-dbt>dbt debug
+17:28:03  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [ERROR not found]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresqldb
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+1 check failed:
+Could not load dbt_project.yml
+
+
+C:\Users\azurevm\Documents\git-dbt>cd demo_dbt
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt debug
+17:29:01  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\demo_dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [OK found and valid]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresqldb
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+All checks passed!
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt run
+17:29:10  Running with dbt=1.4.6
+17:29:10  Unable to do partial parsing because saved manifest not found. Starting full parse.
+17:29:11  Found 2 models, 4 tests, 0 snapshots, 0 analyses, 291 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics
+17:29:11
+17:29:11  Concurrency: 1 threads (target='dev')
+17:29:11
+17:29:11  1 of 2 START sql table model postgresqldb.my_first_dbt_model ................... [RUN]
+17:29:12  1 of 2 OK created sql table model postgresqldb.my_first_dbt_model .............. [SELECT 2 in 0.17s]
+17:29:12  2 of 2 START sql view model postgresqldb.my_second_dbt_model ................... [RUN]
+17:29:12  2 of 2 OK created sql view model postgresqldb.my_second_dbt_model .............. [CREATE VIEW in 0.11s]
+17:29:12
+17:29:12  Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.59 seconds (0.59s).
+17:29:12
+17:29:12  Completed successfully
+17:29:12
+17:29:12  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt run
+17:29:41  Running with dbt=1.4.6
+17:29:41  Found 2 models, 4 tests, 0 snapshots, 0 analyses, 291 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics
+17:29:41
+17:29:41  Concurrency: 1 threads (target='dev')
+17:29:41
+17:29:41  1 of 2 START sql table model postgresqldb.my_first_dbt_model ................... [RUN]
+17:29:41  1 of 2 OK created sql table model postgresqldb.my_first_dbt_model .............. [SELECT 2 in 0.17s]
+17:29:41  2 of 2 START sql view model postgresqldb.my_second_dbt_model ................... [RUN]
+17:29:41  2 of 2 OK created sql view model postgresqldb.my_second_dbt_model .............. [CREATE VIEW in 0.09s]
+17:29:42
+17:29:42  Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.52 seconds (0.52s).
+17:29:42
+17:29:42  Completed successfully
+17:29:42
+17:29:42  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt run
+17:29:51  Running with dbt=1.4.6
+17:29:51  Found 2 models, 4 tests, 0 snapshots, 0 analyses, 291 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics
+17:29:51
+17:29:51  Concurrency: 1 threads (target='dev')
+17:29:51
+17:29:51  1 of 2 START sql table model postgresqldb.my_first_dbt_model ................... [RUN]
+17:29:51  1 of 2 OK created sql table model postgresqldb.my_first_dbt_model .............. [SELECT 2 in 0.14s]
+17:29:51  2 of 2 START sql view model postgresqldb.my_second_dbt_model ................... [RUN]
+17:29:51  2 of 2 OK created sql view model postgresqldb.my_second_dbt_model .............. [CREATE VIEW in 0.08s]
+17:29:51
+17:29:51  Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.50 seconds (0.50s).
+17:29:51
+17:29:51  Completed successfully
+17:29:51
+17:29:51  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git branch
+* main
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ./
+        ../logs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git remote https://github.com/karthik-git-learn/git-dbt.git
+error: unknown subcommand: `https://github.com/karthik-git-learn/git-dbt.git'
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<fetch|push>] <name> <url>
+   or: git remote rename [--[no-]progress] <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git remote add origin https://github.com/karthik-git-learn/git-dbt.git
+error: remote origin already exists.
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git remote --v
+origin  https://github.com/karthik-git-learn/git-dbt.git (fetch)
+origin  https://github.com/karthik-git-learn/git-dbt.git (push)
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git add .
+warning: in the working copy of 'demo_dbt/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'demo_dbt/README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'demo_dbt/models/example/my_first_dbt_model.sql', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'demo_dbt/models/example/my_second_dbt_model.sql', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'demo_dbt/models/example/schema.yml', LF will be replaced by CRLF the next time Git touches it
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit - "my first commit"
+error: pathspec '-' did not match any file(s) known to git
+error: pathspec 'my first commit' did not match any file(s) known to git
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit -m "my first commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'azurevm@azurevm.(none)')
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git push
+info: please complete authentication in your browser...
+Everything up-to-date
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git add .
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit - "my first commit"
+error: pathspec '-' did not match any file(s) known to git
+error: pathspec 'my first commit' did not match any file(s) known to git
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit -m "my first commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'azurevm@azurevm.(none)')
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git push
+Everything up-to-date
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit -m "my first commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'azurevm@azurevm.(none)')
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   .gitignore
+        new file:   README.md
+        new file:   analyses/.gitkeep
+        new file:   dbt_project.yml
+        new file:   macros/.gitkeep
+        new file:   models/example/my_first_dbt_model.sql
+        new file:   models/example/my_second_dbt_model.sql
+        new file:   models/example/schema.yml
+        new file:   seeds/.gitkeep
+        new file:   snapshots/.gitkeep
+        new file:   tests/.gitkeep
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../logs/
+
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit -m "my first commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'azurevm@azurevm.(none)')
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git push
+Everything up-to-date
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git add .
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit - m"mycommit"
+error: pathspec '-' did not match any file(s) known to git
+error: pathspec 'mmycommit' did not match any file(s) known to git
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit -m "mycommit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'azurevm@azurevm.(none)')
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git config --global user.email "karthikeyan.a221234@gmail.com
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git config --global user.name "karthik-git-learn"
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git add .
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git commit -m "my first commit"
+[main 95cc872] my first commit
+ 11 files changed, 111 insertions(+)
+ create mode 100644 demo_dbt/.gitignore
+ create mode 100644 demo_dbt/README.md
+ create mode 100644 demo_dbt/analyses/.gitkeep
+ create mode 100644 demo_dbt/dbt_project.yml
+ create mode 100644 demo_dbt/macros/.gitkeep
+ create mode 100644 demo_dbt/models/example/my_first_dbt_model.sql
+ create mode 100644 demo_dbt/models/example/my_second_dbt_model.sql
+ create mode 100644 demo_dbt/models/example/schema.yml
+ create mode 100644 demo_dbt/seeds/.gitkeep
+ create mode 100644 demo_dbt/snapshots/.gitkeep
+ create mode 100644 demo_dbt/tests/.gitkeep
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>git push
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (13/13), 2.27 KiB | 580.00 KiB/s, done.
+Total 13 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/karthik-git-learn/git-dbt.git
+   618a070..95cc872  main -> main
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt debug
+17:49:52  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\demo_dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [ERROR invalid]
+  dbt_project.yml file [OK found and valid]
+
+Required dependencies:
+ - git [OK found]
+
+1 check failed:
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "postgresql", target "dev" invalid: 'schema' is a required property
+
+
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>dbt debug
+17:50:52  Running with dbt=1.4.6
+dbt version: 1.4.6
+python version: 3.11.3
+python path: C:\Users\azurevm\AppData\Local\Programs\Python\Python311\python.exe
+os info: Windows-10-10.0.19044-SP0
+Using profiles.yml file at C:\Users\azurevm\.dbt\profiles.yml
+Using dbt_project.yml file at C:\Users\azurevm\Documents\git-dbt\demo_dbt\dbt_project.yml
+
+Configuration:
+  profiles.yml file [OK found and valid]
+  dbt_project.yml file [OK found and valid]
+
+Required dependencies:
+ - git [OK found]
+
+Connection:
+  host: azurepostgresql1234.postgres.database.azure.com
+  port: 5432
+  user: azurepostgresql
+  database: postgresqldb
+  schema: postgresqldb
+  search_path: None
+  keepalives_idle: 0
+  sslmode: None
+  Connection test: [OK connection ok]
+
+All checks passed!
+
+C:\Users\azurevm\Documents\git-dbt\demo_dbt>
